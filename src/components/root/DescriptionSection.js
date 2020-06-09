@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import tree1 from '../../images/tree1.png';
 import tree2 from '../../images/tree2.png';
 import tree3 from '../../images/tree3.png';
-import { Button, } from '../../styles/shared';
+import { Button, Text, } from '../../styles/shared';
 
 const descriptions = [
   { title: 'design with benefits', buttonText: 'view collection', img: tree1, text: 'New York Heartwoods creates timeless, lasting wood furniture and custom designs that capture the beauty and history of the Hudson Valley\'s urban forests. Using wood from storm-downed and urban trees, we fabricate enduring pieces so that trees can grow.', },
@@ -21,8 +21,15 @@ const DescriptionSection = () => (
         <SectionWrapper>
           <Image src={img} alt={title} />
           <div>
-            <Text title>{ title }</Text>
-            <Text>{ text }</Text>
+            <Text
+              titleFont
+              uppercase
+              bold
+              textSize={18}
+            >
+              { title }
+            </Text>
+            <Text titleFont textSize={14}>{ text }</Text>
             <Button>{ buttonText }</Button>
           </div>
         </SectionWrapper>
@@ -50,12 +57,6 @@ const SectionWrapper = styled.div`
 const Image = styled.img`
   height: 100px;
   margin-right: 10px;
-`;
-
-const Text = styled.p`
-  font-family: 'PT Sans Caption', sans-serif;
-  font-size: ${ props => props.title ? '18px' : '14px' };
-  text-transform: ${ props => props.title ? 'uppercase' : 'none' };
 `;
 
 export default DescriptionSection;

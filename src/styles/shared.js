@@ -26,3 +26,16 @@ export const Button = styled.button`
 export const Container = styled.div`
   padding: 0 5%;
 `;
+
+// PROPS - Text //
+// textSize : int
+// titleFont : boolean
+// uppercase : boolean
+// bold : boolean
+
+export const Text = styled.p`
+  font-family: ${ props => props.titleFont ? "'PT Sans Caption', sans-serif" : "'PT Serif Caption', serif" };
+  font-size: ${ props => `${props.textSize}px`};
+  text-transform: ${ props => props.uppercase ? 'uppercase' : 'none' };
+  font-weight: ${ props => props.bold ? 'bold' : 'normal' };
+`;

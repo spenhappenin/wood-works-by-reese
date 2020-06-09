@@ -9,22 +9,21 @@ import WorkSection from './WorkSection';
 const Home = () => (
   <div>
     <HeroBanner src={HeroImg} />
-    <br />
-    <br />
-    <br />
+    <Br />
     <DescriptionSection />
-    <br />
-    <br />
-    <br />
+    <Br />
     <WorkSection />
-    <br />
-    <br />
-    <br />
+    <Br />
+    <Br />
   </div>
 );
 
 const HeroBanner = styled.img`
   width: 100%;
+`;
+
+const Br = styled.div`
+  padding: 4rem 0;
 `;
 
 export default Home;
