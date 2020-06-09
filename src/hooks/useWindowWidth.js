@@ -1,7 +1,12 @@
 import { useState, useEffect, } from "react";
 
-export const useWindowWidth = () => {
+export const useWindowWidth = (setWidth) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const mobileView = () => {
+    if (windowWidth < setWidth)
+      return true;
+  };
 
   useEffect( () => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -12,5 +17,5 @@ export const useWindowWidth = () => {
     };
   })
 
-  return windowWidth;
+  return { windowWidth, mobileView, };
 }

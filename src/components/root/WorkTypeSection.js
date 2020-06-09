@@ -11,29 +11,39 @@ const workTypes = [
   { title: 'custom work', buttonText: 'view custom work', image: customImage, },
 ];
 
-const WorkTypeSection = () => (
-  <Container>
-    { workTypes.map( ({ title, buttonText, image, }) => (
-      <WorkWrapper>
-        <Image src={image} />
-        <Text titleFont uppercase bold title>
-          { title }
-        </Text>
-        <Button>{ buttonText }</Button>
-      </WorkWrapper>
-    ))}
-  </Container>
-);
+const WorkTypeSection = () => {
+  return (
+    <Container>
+      { workTypes.map( ({ title, buttonText, image, }) => (
+        <WorkWrapper>
+          <Image src={image} />
+          <Text titleFont uppercase bold title>
+            { title }
+          </Text>
+          <Button>{ buttonText }</Button>
+        </WorkWrapper>
+      ))}
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const WorkWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 800px) {
+    margin-bottom: 50px;
+  }
 `;
 
 const Image = styled.img`

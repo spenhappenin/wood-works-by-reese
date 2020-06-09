@@ -13,37 +13,43 @@ const descriptions = [
   { title: 'focused on the future', buttonText: 'read more', img: tree3, text: 'To continue the cycle of life that makes our work possible, we donate to forest conservation and urban forestry programs. We aim to produce zero waste - donating our wood scraps to a local wood fired bread maker and sawdust to farmers and pit firing ceramicists - and plant more trees than we use.', },
 ];
 
-const DescriptionSection = () => (
-  <Container>
-    <BigText>Beatiful, Purposeful, and Impactful Fine Furniture and Custom Designs</BigText>
-    <div>
-      { descriptions.map( ({ title, text, buttonText, img, }) => (
-        <SectionWrapper>
-          <Image src={img} alt={title} />
-          <div>
-            <Text
-              titleFont
-              uppercase
-              bold
-              textSize={18}
-              title
-            >
-              { title }
-            </Text>
-            <Text titleFont textSize={14}>{ text }</Text>
-            <Button>{ buttonText }</Button>
-          </div>
-        </SectionWrapper>
-      ))}
-    </div>
-  </Container>
-);
+const DescriptionSection = () => {
+  return (
+    <Container>
+      <BigText>Beatiful, Purposeful, and Impactful Fine Furniture and Custom Designs</BigText>
+      <div>
+        { descriptions.map( ({ title, text, buttonText, img, }) => (
+          <SectionWrapper>
+            <Image src={img} alt={title} />
+            <TextContainer>
+              <Text
+                titleFont
+                uppercase
+                bold
+                textSize={18}
+                title
+              >
+                { title }
+              </Text>
+              <Text titleFont textSize={14}>{ text }</Text>
+              <Button>{ buttonText }</Button>
+            </TextContainer>
+          </SectionWrapper>
+        ))}
+      </div>
+    </Container>
+  );
+};
 
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
   background: #f3eee7;
   padding: 0 5%;
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
 `;
 
 const BigText = styled.h1`
@@ -55,6 +61,22 @@ const BigText = styled.h1`
 
 const SectionWrapper = styled.div`
   display: flex;
+  margin-bottom: 30px;
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  @media (max-width: 750px) {
+    align-items: center;
+  }
 `;
 
 const Image = styled.img`

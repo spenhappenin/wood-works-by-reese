@@ -16,22 +16,18 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const width = useWindowWidth();
+  const mobileBreakPoint = 600
+  const { mobileView, } = useWindowWidth(mobileBreakPoint);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  const mobileView = () => {
-    if (width < 600)
-      return true;
-  };
 
   const renderMobileMenu = () => {
     if (showMobileMenu) {
       return (
         <>
           { navLinks.map( ({ title, path, }) => (
-            <>
+            <MobileNavItem>
               <NavItem to={path}>{ title }</NavItem>
-            </>
+            </MobileNavItem>
           ))}
         </>
       )
@@ -48,7 +44,7 @@ const Navbar = () => {
 
   return (
     <>
-      <NavContainer mobileView={mobileView()}>
+      <NavContainer>
         <Logo src={logo} />
         { mobileView() && <MenuIcon src={sideMenu} onClick={() => setShowMobileMenu(!showMobileMenu)} /> }
         { !mobileView() && renderDesktopMenu() }
@@ -64,17 +60,34 @@ const Navbar = () => {
 
 const NavContainer = styled.div`
   display: flex;
-  flex-direction: ${ props => props.mobileView ? 'row' : 'column' };
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 10px 0 0 0;
   padding: 0 100px 0 100px;
+
+  @media (max-width: 600px) {
+    margin-bottom: 30px;
+    flex-direction: row;
+  }
 `;
 
 const MobileNavContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
+`;
+
+const MobileNavItem = styled.div`
+  padding: 20px 25px;
+  background: #fff;
+  width: 100vw;
+
+  &:hover {
+    & > a {
+      /* border-bottom: 1px solid black; */
+    }
+  }
 `;
 
 const Logo = styled.img`
