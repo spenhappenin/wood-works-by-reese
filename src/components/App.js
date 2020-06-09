@@ -4,6 +4,7 @@ import { Container, } from '../styles/shared';
 import { Route, Switch, } from 'react-router-dom';
 
 import Navbar from './shared/Navbar';
+import Footer from './shared/Footer';
 import NotFound from './shared/NotFound';
 import Home from './root/Home';
 
@@ -17,6 +18,7 @@ function App() {
           <Route component={NotFound} />
         </Switch>
       </Container>
+      <Footer />
     </>
   );
 };

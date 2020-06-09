@@ -26,6 +26,7 @@ const DescriptionSection = () => (
               uppercase
               bold
               textSize={18}
+              title
             >
               { title }
             </Text>
@@ -41,6 +42,8 @@ const DescriptionSection = () => (
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
+  background: #f3eee7;
+  padding: 0 5%;
 `;
 
 const BigText = styled.h1`

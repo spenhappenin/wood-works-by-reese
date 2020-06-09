@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import HeroImg from '../../images/heroimg.png';
 import DescriptionSection from './DescriptionSection';
-import WorkSection from './WorkSection';
+import WorkTypeSection from './WorkTypeSection';
 
 const Home = () => (
   <div>
@@ -12,8 +12,7 @@ const Home = () => (
     <Br />
     <DescriptionSection />
     <Br />
-    <WorkSection />
-    <Br />
+    <WorkTypeSection />
     <Br />
   </div>
 );

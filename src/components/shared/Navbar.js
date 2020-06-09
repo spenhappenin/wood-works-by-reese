@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState, } from 'react';
 
 import styled from 'styled-components';
 import { Link, } from 'react-router-dom';
 
 import logo from '../../images/logoplaceholder.png';
+import sideMenu from '../../images/icons/side-menu.svg';
+import { useWindowWidth, } from '../../hooks/useWindowWidth';
 
 const navLinks = [
   { title: 'home', path: '/', },
@@ -14,30 +16,77 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const width = useWindowWidth();
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const mobileView = () => {
+    if (width < 600)
+      return true;
+  };
+
+  const renderMobileMenu = () => {
+    if (showMobileMenu) {
+      return (
+        <>
+          { navLinks.map( ({ title, path, }) => (
+            <>
+              <NavItem to={path}>{ title }</NavItem>
+            </>
+          ))}
+        </>
+      )
+    }
+  };
+
+  const renderDesktopMenu = () => (
+    <NavItems>
+      { navLinks.map( nav => (
+        <NavItem to={nav.path}>{ nav.title }</NavItem>
+      ))}
+    </NavItems>
+  );
+
   return (
-    <NavContainer>
-      <Logo src={logo} />
-      <NavItems>
-        {
-          navLinks.map( nav => (
-            <NavItem to={nav.path}>{ nav.title }</NavItem>
-          ))
+    <>
+      <NavContainer mobileView={mobileView()}>
+        <Logo src={logo} />
+        { mobileView() && <MenuIcon src={sideMenu} onClick={() => setShowMobileMenu(!showMobileMenu)} /> }
+        { !mobileView() && renderDesktopMenu() }
+      </NavContainer>
+      <MobileNavContainer>
+        { mobileView() &&
+          renderMobileMenu()
         }
-      </NavItems>
-    </NavContainer>
+      </MobileNavContainer>
+    </>
   );
 };
 
 const NavContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${ props => props.mobileView ? 'row' : 'column' };
   align-items: center;
+  justify-content: center;
   margin: 10px 0 0 0;
   padding: 0 100px 0 100px;
 `;
 
+const MobileNavContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+`;
+
 const Logo = styled.img`
   width: 125px;
+`;
+
+const MenuIcon = styled.img`
+  width: 50px;
+  right: 0;
+  position: absolute;
+  margin-right: 10px;
+  cursor: pointer;
 `;
 
 const NavItems = styled.div`
@@ -55,11 +104,6 @@ const NavItem = styled(Link)`
   font-family: 'PT Sans Caption', sans-serif;
   font-size: 1rem;
   padding: 20px 25px;
-
-  &:hover {
-    /* background: #f3eee7; */
-    background: #dedede;
-  }
 `;
 
 export default Navbar;
