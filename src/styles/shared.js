@@ -9,6 +9,7 @@ export const Button = styled.button`
   font-weight: bold;
   text-transform: uppercase;
   border-radius: 3px;
+  background: #fff;
   cursor: pointer;
   transition: background 0.3s ease;
 

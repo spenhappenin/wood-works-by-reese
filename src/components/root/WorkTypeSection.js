@@ -2,6 +2,7 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import background from '../../images/work-background.jpg';
 import collectionImage from '../../images/collection-image.png';
 import customImage from '../../images/custom-image.png';
 import { Button, Text, } from '../../styles/shared';
@@ -30,6 +31,10 @@ const WorkTypeSection = () => {
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
+  background-image: url(${background});
+  /* background-position: left; */
+  background-position-y: top;
+  padding: 50px 0;
 
   @media (max-width: 800px) {
     flex-direction: column;

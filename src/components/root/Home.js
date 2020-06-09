@@ -22,7 +22,7 @@ const HeroBanner = styled.img`
 `;
 
 const Br = styled.div`
-  padding: 4rem 0;
+  padding: 1rem 0;
 `;
 
 export default Home;

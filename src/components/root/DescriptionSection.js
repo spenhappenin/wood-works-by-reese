@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import tree1 from '../../images/tree1.png';
 import tree2 from '../../images/tree2.png';
 import tree3 from '../../images/tree3.png';
+import background from '../../images/description-background.jpg';
 import { Button, Text, } from '../../styles/shared';
 
 const descriptions = [
@@ -44,8 +45,14 @@ const DescriptionSection = () => {
 const Container = styled.div`
   display: flex;
   justify-content: space-around;
-  background: #f3eee7;
-  padding: 0 5%;
+  background-image: url(${background});
+  background-position: top;
+  padding: 55px 5% 0 5%;
+
+  @media (max-width: 1100px) {
+    background-position: unset;
+    background-position-y: bottom;
+  }
 
   @media (max-width: 750px) {
     flex-direction: column;

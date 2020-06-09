@@ -26,7 +26,7 @@ const Navbar = () => {
         <>
           { navLinks.map( ({ title, path, }) => (
             <MobileNavItem>
-              <NavItem to={path}>{ title }</NavItem>
+              <NavItem to={path} onClick={() => setShowMobileMenu(false)}>{ title }</NavItem>
             </MobileNavItem>
           ))}
         </>
@@ -63,7 +63,7 @@ const NavContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10px 0 0 0;
+  margin: 30px 0 0 0;
   padding: 0 100px 0 100px;
 
   @media (max-width: 600px) {
