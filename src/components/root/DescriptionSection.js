@@ -1,0 +1,61 @@
+import React from 'react';
+
+import styled from 'styled-components';
+
+import tree1 from '../../images/tree1.png';
+import tree2 from '../../images/tree2.png';
+import tree3 from '../../images/tree3.png';
+import { Button, } from '../../styles/shared';
+
+const descriptions = [
+  { title: 'design with benefits', buttonText: 'view collection', img: tree1, text: 'New York Heartwoods creates timeless, lasting wood furniture and custom designs that capture the beauty and history of the Hudson Valley\'s urban forests. Using wood from storm-downed and urban trees, we fabricate enduring pieces so that trees can grow.', },
+  { title: 'made with care', buttonText: 'view custom', img: tree2, text: 'Everything we make is meticulously crafted to highlight our wood’s unique features. Whether made from our clients’ own trees or from our inventory of lumber and live-edge slabs, each piece is one of a kind due to its origin story. We work closely with our customers to create objects they will cherish.', },
+  { title: 'focused on the future', buttonText: 'read more', img: tree3, text: 'To continue the cycle of life that makes our work possible, we donate to forest conservation and urban forestry programs. We aim to produce zero waste - donating our wood scraps to a local wood fired bread maker and sawdust to farmers and pit firing ceramicists - and plant more trees than we use.', },
+];
+
+const DescriptionSection = () => (
+  <Container>
+    <BigText>Beatiful, Purposeful, and Impactful Fine Furniture and Custom Designs</BigText>
+    <div>
+      { descriptions.map( ({ title, text, buttonText, img, }) => (
+        <SectionWrapper>
+          <Image src={img} alt={title} />
+          <div>
+            <Text title>{ title }</Text>
+            <Text>{ text }</Text>
+            <Button>{ buttonText }</Button>
+          </div>
+        </SectionWrapper>
+      ))}
+    </div>
+  </Container>
+);
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-around;
+`;
+
+const BigText = styled.h1`
+  font-family: 'PT Serif Caption', serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  color: #585858;
+`;
+
+const SectionWrapper = styled.div`
+  display: flex;
+`;
+
+const Image = styled.img`
+  height: 100px;
+  margin-right: 10px;
+`;
+
+const Text = styled.p`
+  font-family: 'PT Sans Caption', sans-serif;
+  font-size: ${ props => props.title ? '18px' : '14px' };
+  text-transform: ${ props => props.title ? 'uppercase' : 'none' };
+`;
+
+export default DescriptionSection;

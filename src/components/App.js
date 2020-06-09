@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Container, } from '../styles/shared';
 import { Route, Switch, } from 'react-router-dom';
 
 import Navbar from './shared/Navbar';
@@ -10,10 +11,12 @@ function App() {
   return (
     <>
       <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route component={NotFound} />
-      </Switch>
+      <Container>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route component={NotFound} />
+        </Switch>
+      </Container>
     </>
   );
 };
