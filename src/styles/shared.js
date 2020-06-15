@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const Br = styled.div`
+  padding: 1rem 0;
+`;
+
 export const Button = styled.button`
   border: 1px solid #a68a80;
   padding: 10px 20px;
@@ -41,4 +45,11 @@ export const Text = styled.p`
   text-transform: ${ props => props.uppercase ? 'uppercase' : 'none' };
   font-weight: ${ props => props.bold ? 'bold' : 'normal' };
   letter-spacing: ${ props => props.title ? '2px' : '0px' };
+`;
+
+export const BigText = styled.h1`
+  font-family: 'PT Serif Caption', serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+  color: #585858;
 `;

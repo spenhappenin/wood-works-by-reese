@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import HeroImg from '../../images/heroimg.png';
 import DescriptionSection from './DescriptionSection';
 import WorkTypeSection from './WorkTypeSection';
+import { Br, } from '../../styles/shared';
 
 const Home = () => (
   <div>
@@ -19,10 +20,6 @@ const Home = () => (
 
 const HeroBanner = styled.img`
   width: 100%;
-`;
-
-const Br = styled.div`
-  padding: 1rem 0;
 `;
 
 export default Home;
