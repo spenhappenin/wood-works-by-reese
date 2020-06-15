@@ -16,7 +16,7 @@ const WorkTypeSection = () => {
   return (
     <Container>
       { workTypes.map( ({ title, buttonText, image, }) => (
-        <WorkWrapper>
+        <WorkWrapper key={title}>
           <Image src={image} />
           <Text titleFont uppercase bold title>
             { title }

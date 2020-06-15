@@ -9,9 +9,9 @@ import background from '../../images/description-background.jpg';
 import { Button, Text, } from '../../styles/shared';
 
 const descriptions = [
-  { title: 'design with benefits', buttonText: 'view collection', img: tree1, text: 'New York Heartwoods creates timeless, lasting wood furniture and custom designs that capture the beauty and history of the Hudson Valley\'s urban forests. Using wood from storm-downed and urban trees, we fabricate enduring pieces so that trees can grow.', },
-  { title: 'made with care', buttonText: 'view custom', img: tree2, text: 'Everything we make is meticulously crafted to highlight our wood’s unique features. Whether made from our clients’ own trees or from our inventory of lumber and live-edge slabs, each piece is one of a kind due to its origin story. We work closely with our customers to create objects they will cherish.', },
-  { title: 'focused on the future', buttonText: 'read more', img: tree3, text: 'To continue the cycle of life that makes our work possible, we donate to forest conservation and urban forestry programs. We aim to produce zero waste - donating our wood scraps to a local wood fired bread maker and sawdust to farmers and pit firing ceramicists - and plant more trees than we use.', },
+  { id: 1, title: 'design with benefits', buttonText: 'view collection', img: tree1, text: 'New York Heartwoods creates timeless, lasting wood furniture and custom designs that capture the beauty and history of the Hudson Valley\'s urban forests. Using wood from storm-downed and urban trees, we fabricate enduring pieces so that trees can grow.', },
+  { id: 2, title: 'made with care', buttonText: 'view custom', img: tree2, text: 'Everything we make is meticulously crafted to highlight our wood’s unique features. Whether made from our clients’ own trees or from our inventory of lumber and live-edge slabs, each piece is one of a kind due to its origin story. We work closely with our customers to create objects they will cherish.', },
+  { id: 3, title: 'focused on the future', buttonText: 'read more', img: tree3, text: 'To continue the cycle of life that makes our work possible, we donate to forest conservation and urban forestry programs. We aim to produce zero waste - donating our wood scraps to a local wood fired bread maker and sawdust to farmers and pit firing ceramicists - and plant more trees than we use.', },
 ];
 
 const DescriptionSection = () => {
@@ -19,8 +19,8 @@ const DescriptionSection = () => {
     <Container>
       <BigText>Beatiful, Purposeful, and Impactful Fine Furniture and Custom Designs</BigText>
       <div>
-        { descriptions.map( ({ title, text, buttonText, img, }) => (
-          <SectionWrapper>
+        { descriptions.map( ({ id, title, text, buttonText, img, }) => (
+          <SectionWrapper key={id}>
             <Image src={img} alt={title} />
             <TextContainer>
               <Text

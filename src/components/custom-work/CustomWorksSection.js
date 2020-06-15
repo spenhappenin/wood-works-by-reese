@@ -7,12 +7,6 @@ import desks from '../../images/customWork/desks.jpg';
 import tables from '../../images/customWork/tables.jpg';
 import { Text, } from '../../styles/shared';
 
-const customWorks = [
-  { title: 'cabinets', image: cabinets, },
-  { title: 'tables', image: tables, },
-  { title: 'desk', image: desks, },
-];
-
 const CustomWorksSection = () => {
   return (
     <Container>
@@ -20,7 +14,7 @@ const CustomWorksSection = () => {
       <div class="row">
         <div class="column">
           <Image>
-            <img src={cabinets} />
+            <img src={cabinets} alt="cabinets" />
             <Text
                 titleFont
                 uppercase
@@ -32,7 +26,7 @@ const CustomWorksSection = () => {
             </Text>
           </Image>
           <Image>
-            <img src={desks} />
+            <img src={desks} alt="desks" />
             <Text
                 titleFont
                 uppercase
@@ -46,7 +40,7 @@ const CustomWorksSection = () => {
         </div>
         <div class="column">
           <Image>
-            <img src={tables} />
+            <img src={tables} alt="table" />
             <Text
                 titleFont
                 uppercase

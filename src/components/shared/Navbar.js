@@ -25,7 +25,7 @@ const Navbar = () => {
       return (
         <>
           { navLinks.map( ({ title, path, }) => (
-            <MobileNavItem>
+            <MobileNavItem key={title}>
               <NavItem to={path} onClick={() => setShowMobileMenu(false)}>{ title }</NavItem>
             </MobileNavItem>
           ))}
@@ -36,8 +36,8 @@ const Navbar = () => {
 
   const renderDesktopMenu = () => (
     <NavItems>
-      { navLinks.map( nav => (
-        <NavItem to={nav.path}>{ nav.title }</NavItem>
+      { navLinks.map( ({ title, path, }) => (
+        <NavItem key={title} to={path}>{ title }</NavItem>
       ))}
     </NavItems>
   );
