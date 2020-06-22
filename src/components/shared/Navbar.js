@@ -9,7 +9,7 @@ import { useWindowWidth, } from '../../hooks/useWindowWidth';
 
 const navLinks = [
   { title: 'home', path: '/', },
-  { title: 'collection', path: '/collection', },
+  // { title: 'collection', path: '/collection', },
   { title: 'custom work', path: '/custom-work', },
   { title: 'about', path: '/about', },
   { title: 'contact', path: '/contact', },
